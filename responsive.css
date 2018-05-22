@@ -1,0 +1,82 @@
+/*
+ Responsive CSS
+*/
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.header__menu {
+    display: none;
+}
+
+
+.hero,
+.top-news,
+.scores,
+.weather,
+.recent-news {
+    order: 10;
+}
+
+@media screen and (max-width: 550px) {
+    .header__logo {
+        height: 50px;
+        margin-right: 1em;
+    }
+    .header__title {
+        font-size: 2em;
+        margin-left: 1em;
+        vertical-align: bottom;
+    }
+    .header__menu {
+        right: 0;
+        display: inline-block;
+        position: absolute;
+        padding: 1em;
+        font-size: 20px;
+        color: gray;
+    }
+    
+}
+
+@media screen and (min-width: 550px) {
+    .hero {
+        order: 0;
+        width: 60%;
+    }
+    .weather {
+        order: 1;
+        width: 40%;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    .hero {
+        width: 50%;
+    }
+    .top-news {
+        order: 1;
+        width: 50%;
+    }
+    .scores {
+        order: 2;
+        width: 55%;
+    }
+    .weather {
+        order: 3;
+        width: 45%;
+    }
+}
+
+@media screen and (min-width: 850px) {
+    main,
+    .header__inner,
+    .nav,
+    .content {
+        width: 850px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
