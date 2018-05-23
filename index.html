@@ -1,16 +1,13 @@
 <!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brighton Times</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="stylesheet" type="text/css" href="responsive.css">
-
 </head>
 
 <body>
@@ -21,9 +18,11 @@
             <h1 class="header__title">
                 The Brighton Times
             </h1>
-            <a href="javascript:void(0);" id="menuIcon" class="header__menu" >
-             <i class="fa fa-bars"></i>
-         </a>
+            <a id="menu" class="header__menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M2 6h20v3H2zm0 5h20v3H2zm0 5h20v3H2z"/>
+          </svg>
+        </a>
         </div>
     </header>
 
@@ -118,7 +117,7 @@
                 <span class="weather__location">Brighton, UK</span>
                 <span class="weather__desc">Sunny</span>
                 <span class="weather__today">
-          <img class="weather__today__image" src="images/weather.png" alt="icon of a partially sunny day"><span class="weather__today__temp">13</span><span class="weather__today__deg">&deg;C</span>
+          <img class="weather__today__image" src="images/weather.png" alt="icon of a partially cloudy day"><span class="weather__today__temp">13</span><span class="weather__today__deg">&deg;C</span>
                 </span>
                 <ul class="weather__next">
                     <li class="weather__next__item">
@@ -188,20 +187,20 @@
         </footer>
     </main>
     <script>
-        const menuIcon = document.querySelector("#menuIcon");
-        const drawer = document.querySelector("#drawer");
+        /*
+         * Open the drawer when the menu ison is clicked.
+         */
+        var menu = document.querySelector('#menu');
+        var main = document.querySelector('main');
+        var drawer = document.querySelector('.nav');
 
-        menuIcon.addEventListener('click', function(event){
-            event.stopPropagation();
-            alert("hello");
-            drawer.classList.toggle("responsive");
-        })
-//        const displayMenu = (e) => {
-//            e.stopPropagation();
-//
-//            drawer.classList.toggle("responsive");
-//        }
+        menu.addEventListener('click', function(e) {
+            drawer.classList.toggle('open');
+            e.stopPropagation();
+        });
+        main.addEventListener('click', function() {
+            drawer.classList.remove('open');
+        });
     </script>
 </body>
-
 </html>
